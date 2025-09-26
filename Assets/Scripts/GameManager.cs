@@ -25,32 +25,28 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        _gamePauseCanvas.SetActive(true);
-        Time.timeScale = 0f;
-        activePause = !activePause;
+        if (activePause)
+            {
+                _gamePauseCanvas.SetActive(true);
+                Time.timeScale = 0f;
+                activePause = !activePause;
+            }
+            else
+            {
+                _gamePauseCanvas.SetActive(false);
+                Time.timeScale = 1f;
+                activePause = !activePause;
+            } 
     }
-    public void UnPauseGame()
+    public void ExitToDesktop()
     {
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        _gamePauseCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        activePause = !activePause;
+        Application.Quit();
     }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (activePause)
-            {
-                UnPauseGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-        if (true) { 
-
+            PauseGame();
         }
     }
 }
