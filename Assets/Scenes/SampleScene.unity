@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 611213919}
   - component: {fileID: 611213920}
   - component: {fileID: 611213921}
+  - component: {fileID: 611213922}
   m_Layer: 0
   m_Name: PSprite
   m_TagString: Untagged
@@ -312,10 +313,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8c9a753e60a0f449510a40fbb6dccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 611213922}
   downSprite: {fileID: 21300000, guid: 27b4b9c0546cfd7459e10cce0b6ead70, type: 3}
   upSprite: {fileID: 21300000, guid: 2c7ed8f2e3b922f4eada5de5924ecdec, type: 3}
   leftSprite: {fileID: 21300000, guid: 87963d1d132761a478e04c688dad81f2, type: 3}
   rightSprite: {fileID: 21300000, guid: a51b0f61ce033da4eaf79f609d664212, type: 3}
+  LDSprite: {fileID: 0}
+  RDSprite: {fileID: 0}
+  RTSprite: {fileID: 0}
+  LTSprite: {fileID: 0}
+--- !u!95 &611213922
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611213918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cb1340b7f8117046ae3ddc9f1485569, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &822108902
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd0569f2cf80d148bc31ba019dab990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 915622104}
   downSprite: {fileID: 21300000, guid: b5efeb84e7333814d8533a58b17e313d, type: 3}
   upSprite: {fileID: 21300000, guid: 7910f0261ecb5c743907e1f57c369768, type: 3}
   leftSprite: {fileID: 21300000, guid: 31ecc8efca3b3344eba8dab959edede0, type: 3}

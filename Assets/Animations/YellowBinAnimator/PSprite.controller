@@ -85,7 +85,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveLDGreen
+  m_Name: MoveLDYellow
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 12fbad4a394c1994290877e7feeaa033, type: 2}
+  m_Motion: {fileID: 7400000, guid: 79e1af796a7ef184fb0892ac4b02e9da, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -498,7 +498,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveLUGreen
+  m_Name: MoveLUYellow
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -514,7 +514,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5a4b1c6f50b9fd642bbd0cd2e4777660, type: 2}
+  m_Motion: {fileID: 7400000, guid: bded5f2b1ac0a6e4f8633ebdb951e302, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -561,7 +561,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveRightGreenBin
+  m_Name: MoveRightYellowBin
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -577,7 +577,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eb4e264615405ac4bbcf4186893e2f20, type: 2}
+  m_Motion: {fileID: 7400000, guid: 17cda0b4d63238b40baaf89d2a25c3c6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -705,7 +705,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveRDGreen
+  m_Name: MoveRDYellow
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -720,7 +720,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9845f0531e64d414b8e06fabfd889087, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1498f99d3dd2d4749a39d40b2eb14054, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -761,7 +761,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveRUGreen
+  m_Name: MoveRUYellow
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -777,7 +777,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1fa9b1739c6bbcf479b357a116958367, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2e1090beae9faaf4bb0831814c72fa37, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -815,7 +815,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveUpGreenBin
+  m_Name: MoveUpYellowBin
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -831,7 +831,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f6602b29b5545004dab952a5a387037f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3f09d776a83faad4598b151b4987e88f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -906,7 +906,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveLeftGreenBin
+  m_Name: MoveLeftYellowBin
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -922,7 +922,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d9bd750e4df83d348bd94a89dd7f0e2f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 88e6e12561546554788ca63ce7ca4195, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -942,7 +942,7 @@ AnimatorStateMachine:
     m_Position: {x: 1760, y: 850, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6176882493196414360}
-    m_Position: {x: 1760, y: 950, z: 0}
+    m_Position: {x: 1760, y: 940, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7031023157992462425}
     m_Position: {x: 1470, y: 850, z: 0}
@@ -978,7 +978,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoveDownGreenBin
+  m_Name: MoveDownYellowBin
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -998,7 +998,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c26daedc1a12b524aa690c6825287f01, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1760c0abc11484d47b2f261a07db628f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

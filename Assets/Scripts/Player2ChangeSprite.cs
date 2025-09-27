@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Player2ChangeSprite : MonoBehaviour
 {
-    public Sprite downSprite; 
-    public Sprite upSprite;      
-    public Sprite leftSprite;      
-    public Sprite rightSprite;      
+    public Animator animator;
+    public Sprite downSprite, upSprite, leftSprite, rightSprite, LDSprite, RDSprite, RTSprite, LTSprite; 
 
     private SpriteRenderer spriteRenderer;
 
@@ -20,22 +18,69 @@ public class Player2ChangeSprite : MonoBehaviour
 
     void Update()
     {
-        
+        // diagonal movement
+        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+        {
+            animator.SetBool("GoingDown", true);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", true);
+            animator.SetBool("GoingRight", false);
+            
+            return;
+        } else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            
+            animator.SetBool("GoingDown", true);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", true);
+            return;
+        } else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", true);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", true);
+            return;
+        } else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+        {
+            
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", true);
+            animator.SetBool("GoingLeft", true);
+            animator.SetBool("GoingRight", false);
+            return;
+        }
+
+        // linear movement
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            spriteRenderer.sprite = upSprite;
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", true);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", false);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
-            spriteRenderer.sprite = downSprite;
+            animator.SetBool("GoingDown", true);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", false);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
-            spriteRenderer.sprite = rightSprite;
+           animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", true);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            spriteRenderer.sprite = leftSprite;
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", true);
+            animator.SetBool("GoingRight", false);
         }
     }
+
 }
