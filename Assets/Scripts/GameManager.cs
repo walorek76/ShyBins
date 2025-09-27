@@ -7,72 +7,99 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
+
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _gamePauseCanvas;
-    [SerializeField] private GameObject _audioSource;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject pauseMenuCanvas;
+    [SerializeField] private Scrollbar volumeSlider;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource musicSource;
+
     public static GameManager instance;
-    private bool activePause = false;
-    private bool activeAudio = true;
-    private void Start()
-    {
-        _gamePauseCanvas.SetActive(false);
-        _audioSource.GetComponent<AudioSource>().volume = 0.1f;
-    }
+
+    private bool isPaused = false;
+    private bool isAudioOn = true;
 
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
-        }
-        Time.timeScale = 1f;
-    }
-    public void PauseGame()
-    {
-        if (activePause)
-        {
-            _gamePauseCanvas.SetActive(true);
-            Time.timeScale = 0f;
-            activePause = !activePause;
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            _gamePauseCanvas.SetActive(false);
-            Time.timeScale = 1f;
-            activePause = !activePause;
+            Destroy(gameObject);
+            return;
+        }
+
+        Time.timeScale = 1f;
+    }
+
+    private void Start()
+    {
+        if (pauseMenuCanvas != null) pauseMenuCanvas.SetActive(false);
+
+        if (musicSource != null) musicSource.volume = 0.1f;
+
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = musicSource != null ? musicSource.volume : 0.5f;
+            volumeSlider.onValueChanged.AddListener(ChangeVolume);
         }
     }
+
+    public void PauseGame()
+    {
+        isPaused = !isPaused;
+
+        if (pauseMenuCanvas != null)
+            pauseMenuCanvas.SetActive(isPaused);
+
+        Time.timeScale = isPaused ? 0f : 1f;
+    }
+
     public void ExitToDesktop()
     {
         Application.Quit();
     }
+
     public void ExitToMainMenu()
     {
-
+        Time.timeScale = 1f;
+        // SceneManager.LoadScene("MainMenu"); 
     }
-    // public void ChangedVolume(){
-    //      float AudioVolume = _gamePauseCanvas.GetComponent<Scrollbar>().value;
-    //      _audioSource.GetComponent<AudioSource>().volume = AudioVolume;
-    // }
-    public void ToggleVolume() {
-        if (activeAudio)
+
+    public void ChangeVolume(float newVolume)
+    {
+        if (musicSource != null)
+            musicSource.volume = newVolume;
+    }
+
+    public void ToggleVolume()
+    {
+        if (musicSource == null) return;
+
+        if (isAudioOn)
         {
-            _audioSource.GetComponent<AudioSource>().Pause();
-            activeAudio = !activeAudio;
+            musicSource.Pause();
         }
         else
-        { 
-            _audioSource.GetComponent<AudioSource>().UnPause();
-            activeAudio = !activeAudio;
+        {
+            musicSource.UnPause();
         }
+
+        isAudioOn = !isAudioOn;
     }
-    public void Update()
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
         }
     }
-    
 }

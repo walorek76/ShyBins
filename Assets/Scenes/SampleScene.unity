@@ -470,8 +470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b561bc3909b6545a0884890cdff73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gamePauseCanvas: {fileID: 22052724}
-  _audioSource: {fileID: 1281430434}
+  pauseMenuCanvas: {fileID: 22052724}
+  volumeSlider: {fileID: 866056380}
+  musicSource: {fileID: 1281430437}
 --- !u!4 &486494775
 Transform:
   m_ObjectHideFlags: 0
@@ -837,8 +838,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 190}
-  m_SizeDelta: {x: 160, y: 40}
+  m_AnchoredPosition: {x: 60, y: 190}
+  m_SizeDelta: {x: 200, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866056380
 MonoBehaviour:
