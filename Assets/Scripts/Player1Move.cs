@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Player1Move : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+
     }
     public float speed = 5f;
 
-    // Update is called once per frame
+
+
     void Update()
     {
-         float moveX = 0f;
+        float moveX = 0f;
         float moveY = 0f;
 
         if (Input.GetKey(KeyCode.W)) moveY = 1f;
