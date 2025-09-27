@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Player1ChangeSprite : MonoBehaviour
 {
+    public Animator animator;
     public Sprite downSprite, upSprite, leftSprite, rightSprite, LDSprite, RDSprite, RTSprite, LTSprite; 
-    //public Sprite upSprite;      
-    //public Sprite leftSprite;      
-    //public Sprite rightSprite;
-    //public Sprite LDSprite;
-    //public Sprite RDSprite;
-    //public Sprite RTSprite;
 
     private SpriteRenderer spriteRenderer;
 
@@ -26,38 +21,65 @@ public class Player1ChangeSprite : MonoBehaviour
         // diagonal movement
         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
         {
-            spriteRenderer.sprite = LDSprite;
+            animator.SetBool("GoingDown", true);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", true);
+            animator.SetBool("GoingRight", false);
+            
             return;
         } else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
-            spriteRenderer.sprite = RDSprite;
+            
+            animator.SetBool("GoingDown", true);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", true);
             return;
         } else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
-            spriteRenderer.sprite = RTSprite;
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", true);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", true);
             return;
         } else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
         {
-            spriteRenderer.sprite = LTSprite;
+            
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", true);
+            animator.SetBool("GoingLeft", true);
+            animator.SetBool("GoingRight", false);
             return;
         }
 
         // linear movement
         if (Input.GetKey(KeyCode.W))
         {
-            spriteRenderer.sprite = upSprite;
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", true);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", false);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            spriteRenderer.sprite = downSprite;
+            animator.SetBool("GoingDown", true);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", false);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            spriteRenderer.sprite = rightSprite;
+           animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", false);
+            animator.SetBool("GoingRight", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            spriteRenderer.sprite = leftSprite;
+            animator.SetBool("GoingDown", false);
+            animator.SetBool("GoingUp", false);
+            animator.SetBool("GoingLeft", true);
+            animator.SetBool("GoingRight", false);
         }
     }
 
