@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         if (volumeSlider != null)
         {
             volumeSlider.value = musicSource != null ? musicSource.volume : 0.5f;
-            volumeSlider.onValueChanged.AddListener(ChangeVolume);
+            volumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
         }
     }
 
@@ -73,13 +73,13 @@ public class GameManager : MonoBehaviour
         // SceneManager.LoadScene("MainMenu"); 
     }
 
-    public void ChangeVolume(float newVolume)
+    public void ChangeMusicVolume(float newVolume)
     {
         if (musicSource != null)
             musicSource.volume = newVolume;
     }
 
-    public void ToggleVolume()
+    public void ToggleMusicVolume()
     {
         if (musicSource == null) return;
 
