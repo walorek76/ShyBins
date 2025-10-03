@@ -34,4 +34,5 @@ public class Player1Move : MonoBehaviour
         if (rb != null)
             rb.velocity = Vector2.zero;
     }
+    
 }
