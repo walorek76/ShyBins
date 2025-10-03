@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Player1Move : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     public float speed = 5f;
 
-    // Update is called once per frame
-    void Update()
+    private Rigidbody2D rb;
+
+    void Start()
     {
-         float moveX = 0f;
+        rb = GetComponent<Rigidbody2D>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+    }
+
+    void FixedUpdate()
+    {
+        float moveX = 0f;
         float moveY = 0f;
 
         if (Input.GetKey(KeyCode.W)) moveY = 1f;
@@ -22,7 +25,13 @@ public class Player1Move : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) moveX = -1f;
         if (Input.GetKey(KeyCode.D)) moveX = 1f;
 
-        Vector3 movement = new Vector3(moveX, moveY, 0).normalized;
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        Vector2 movement = new Vector2(moveX, moveY).normalized * speed;
+        rb.velocity = movement;
+    }
+
+    void OnDisable()
+    {
+        if (rb != null)
+            rb.velocity = Vector2.zero;
     }
 }
