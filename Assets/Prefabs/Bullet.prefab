@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3642216715247324124}
   - component: {fileID: 7752578721974274610}
+  - component: {fileID: 2049766790636955333}
   - component: {fileID: 4352286335749390695}
   m_Layer: 6
   m_Name: BulletSprite
@@ -196,6 +197,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2049766790636955333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9144241140081132745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb959b608814634c94fcf7f11de69e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4352286335749390695
 Animator:
   serializedVersion: 5

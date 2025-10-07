@@ -20,13 +20,13 @@ public class Player1Attack : MonoBehaviour
 
     void Update()
     {
-        // aktualizujemy ostatni kierunek gdy gracz się porusza
-        if (rb.velocity.sqrMagnitude > 0.01f) // zamiast .normalized == Vector2.zero
+        
+        if (rb.velocity.sqrMagnitude > 0.01f) 
         {
             lastShootDirection = rb.velocity.normalized;
         }
 
-        // strzał po wciśnięciu F
+        
         if (Input.GetKeyDown(KeyCode.F) && coolDownTimer > attackCooldown)
         {
             Attack();
@@ -39,14 +39,15 @@ public class Player1Attack : MonoBehaviour
     {
         coolDownTimer = 0;
 
-        // Tworzymy pocisk
+        
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
         Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
         rbBullet.velocity = lastShootDirection * bulletSpeed;
 
-        // Opcjonalnie: obrót pocisku w stronę kierunku lotu
+        
         float angle = Mathf.Atan2(lastShootDirection.y, lastShootDirection.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        bullet.tag = gameObject.tag;
     }
 }

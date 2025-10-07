@@ -17,8 +17,10 @@ public class BulletScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != gameObject.tag) { 
+        if (collision.gameObject.tag != gameObject.tag)
+        {
             Destroy(gameObject);
+            // collision.gameObject
         }
     }
     
