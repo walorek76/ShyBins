@@ -1153,6 +1153,7 @@ GameObject:
   - component: {fileID: 822108907}
   - component: {fileID: 822108908}
   - component: {fileID: 822108909}
+  - component: {fileID: 822108910}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Player2
@@ -1266,6 +1267,20 @@ MonoBehaviour:
   attackCooldown: 0.5
   bulletPrefab: {fileID: 385520209870545221, guid: 9532a89d769ece04891115a8aff1d7cd, type: 3}
   bulletSpeed: 10
+--- !u!114 &822108910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822108902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a82e84c75fa954591169cd5ee166a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
 --- !u!1 &866056378
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,6 +5872,7 @@ GameObject:
   - component: {fileID: 1753848243}
   - component: {fileID: 1753848244}
   - component: {fileID: 1753848245}
+  - component: {fileID: 1753848246}
   m_Layer: 6
   m_Name: Player1
   m_TagString: Player1
@@ -5970,6 +5986,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0029659271, y: -0.041521728}
   m_Size: {x: 0.37543488, y: 0.7330744}
   m_Direction: 0
+--- !u!114 &1753848246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753848237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a82e84c75fa954591169cd5ee166a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
 --- !u!1 &1793812256
 GameObject:
   m_ObjectHideFlags: 0
