@@ -10,6 +10,7 @@ public class BulletScript : MonoBehaviour
     private void Start()
     {
         // damage = Stats.Instance.Damage;
+        damage = 1;
     }
     void Awake()
     {
@@ -19,8 +20,8 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.tag != gameObject.tag)
         {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
-            // collision.gameObject
         }
     }
     
