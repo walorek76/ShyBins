@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RotateSpriteContinuously : MonoBehaviour
+public class RotateSpriteContinuously2 : MonoBehaviour
 {
     public float rotationSpeed = 360f;
 
