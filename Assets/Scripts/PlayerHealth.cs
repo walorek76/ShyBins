@@ -6,14 +6,12 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 5;
     public int currentHealth;
-<<<<<<< HEAD
 
-=======
->>>>>>> ec0da44eecfb42ba9d7cf2de5b9deab92a93c354
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private float timer = 0f;
     private bool isDamaged = false;
+
 
     void Start()
     {
