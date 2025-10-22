@@ -6,7 +6,7 @@ public class Player1Attack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 0.5f; 
     private Rigidbody2D rb;
-    private Vector2 lastShootDirection = Vector2.right; // domyślnie w prawo
+    private Vector2 lastShootDirection = Vector2.right; 
 
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;

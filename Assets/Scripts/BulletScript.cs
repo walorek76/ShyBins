@@ -17,12 +17,27 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject,life);
     }
     void OnTriggerEnter2D(Collider2D collision)
+{
+    
+    if (collision.CompareTag(gameObject.tag)) return;
+
+    
+    if (collision.CompareTag("SolidObjects"))
     {
-        if (collision.gameObject.tag != gameObject.tag)
-        {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
+        return;
     }
+
+    
+    PlayerHealth targetHealth = collision.GetComponent<PlayerHealth>();
+    if (targetHealth != null)
+    {
+        targetHealth.TakeDamage(damage);
+    }
+
+    
+    Destroy(gameObject);
+}
+
     
 }
