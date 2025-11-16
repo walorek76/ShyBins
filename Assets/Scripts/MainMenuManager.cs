@@ -1,30 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
-
-
-public class GameManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private GameObject pauseMenuCanvas;
+    [SerializeField] private GameObject settingsMenuCanvas;
+    [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private Scrollbar volumeSlider;
     [SerializeField] private Toggle musicToggle;
 
     [Header("Audio")]
     [SerializeField] private AudioSource musicSource;
-
     private bool isPaused = false;
-    private bool isAudioOn;
-    private void Start()
+    private bool isAudioOn = false;
+    void Start()
     {
+        settingsMenuCanvas.SetActive(true);
         isAudioOn = GameData.Instance.musicBool;
         musicToggle.isOn = GameData.Instance.musicBool;
-        if (pauseMenuCanvas != null) pauseMenuCanvas.SetActive(false);
+        
+
+        if (settingsMenuCanvas != null) settingsMenuCanvas.SetActive(false);
 
         if (musicSource != null) musicSource.volume = GameData.Instance.volumeMusic;
 
@@ -39,17 +38,18 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            
             musicSource.Pause();
         }
-    }
 
+    }
+    
+    
     public void PauseGame()
     {
         isPaused = !isPaused;
 
-        if (pauseMenuCanvas != null)
-            pauseMenuCanvas.SetActive(isPaused);
+        if (settingsMenuCanvas != null)
+            settingsMenuCanvas.SetActive(isPaused);
 
         Time.timeScale = isPaused ? 0f : 1f;
     }
@@ -58,13 +58,6 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void ExitToMainMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); 
-    }
-
     public void ChangeMusicVolume(float newVolume)
     {
         if (musicSource != null)
@@ -88,8 +81,17 @@ public class GameManager : MonoBehaviour
         isAudioOn = !isAudioOn;
         GameData.Instance.musicBool = !GameData.Instance.musicBool;
     }
+    public void OpenSettingsMenu()
+    {
+        PauseGame();
+    }
 
-    private void Update()
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene("SampleScene"); 
+    }
+    
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
