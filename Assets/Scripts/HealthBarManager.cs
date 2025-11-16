@@ -1,32 +1,49 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBarManager : MonoBehaviour
 {
+    [Header("Players")]
     [SerializeField] PlayerHealth playerHealth1;
     [SerializeField] PlayerHealth playerHealth2;
 
-    [SerializeField] Text textHealth1;
-    [SerializeField] Text textHealth2;
+    [Header("Heart Prefab")]
+    public GameObject heartPrefab;
+
+    [Header("UI Containers")]
+    public Transform heartsContainer1;
+    public Transform heartsContainer2;
+
+    private List<GameObject> hearts1 = new List<GameObject>();
+    private List<GameObject> hearts2 = new List<GameObject>();
 
     void Start()
     {
-        playerHealth1.currentHealth = playerHealth1.maxHealth;
-        playerHealth2.currentHealth = playerHealth2.maxHealth;
-
-        UpdateHealthText();
+        CreateHearts(playerHealth1.maxHealth, heartsContainer1, hearts1);
+        CreateHearts(playerHealth2.maxHealth, heartsContainer2, hearts2);
     }
 
     void Update()
     {
-        UpdateHealthText();
+        UpdateHearts(playerHealth1.currentHealth, hearts1);
+        UpdateHearts(playerHealth2.currentHealth, hearts2);
     }
 
-    void UpdateHealthText()
+    void CreateHearts(int count, Transform container, List<GameObject> list)
     {
-        textHealth1.text = "Health: " + playerHealth1.currentHealth.ToString();
-        textHealth2.text = "Health: " + playerHealth2.currentHealth.ToString();
+        for (int i = 0; i < count; i++)
+        {
+            GameObject heart = Instantiate(heartPrefab, container);
+            list.Add(heart);
+        }
+    }
+
+    void UpdateHearts(int currentHealth, List<GameObject> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            list[i].SetActive(i < currentHealth);
+        }
     }
 }

@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+    private Color damageColor = new Color(0.9686f, 0.5608f, 0.5608f);
     private float timer = 0f;
     private bool isDamaged = false;
 
@@ -16,9 +17,14 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        currentHealth = maxHealth;
         originalColor = spriteRenderer.color; 
     }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
+
 
     void Update()
     {
@@ -27,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer >= 1f)
+            if (timer >= 0.1f)
             {
                 spriteRenderer.color = originalColor;
                 timer = 0f;
@@ -39,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = damageColor;
         isDamaged = true; 
 
         if (currentHealth <= 0)

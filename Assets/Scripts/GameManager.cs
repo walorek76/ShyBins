@@ -17,7 +17,16 @@ public class GameManager : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource musicSource;
 
+    [Header("Players")]
+    public PlayerHealth player1;
+    public PlayerHealth player2;
+
+    [Header("UI")]
+    public GameObject gameOverPanel;
+    public Text winnerText;
+
     public static GameManager instance;
+    bool gameOver = false;
 
     private bool isPaused = false;
     private bool isAudioOn = true;
@@ -41,6 +50,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        gameOverPanel.SetActive(false);
+        player1.ResetHealth();
+        player2.ResetHealth();
+
         if (pauseMenuCanvas != null) pauseMenuCanvas.SetActive(false);
 
         if (musicSource != null) musicSource.volume = 0.1f;
@@ -95,11 +109,38 @@ public class GameManager : MonoBehaviour
         isAudioOn = !isAudioOn;
     }
 
+    void ShowGameOver(string message)
+    {
+        gameOver = true;
+        gameOverPanel.SetActive(true);
+        winnerText.text = message;
+        Time.timeScale = 0f; 
+    }
+
+    public void PlayAgain()
+    {
+        Time.timeScale = 1f;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
+        }
+
+        if (gameOver) return;
+
+        if (player1.currentHealth <= 0)
+        {
+            ShowGameOver("Player 2 wins!");
+        }
+
+        if (player2.currentHealth <= 0)
+        {
+            ShowGameOver("Player 1 wins!");
         }
     }
 }
