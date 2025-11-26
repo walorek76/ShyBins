@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingBarScript : MonoBehaviour
@@ -16,6 +17,10 @@ public class LoadingBarScript : MonoBehaviour
         {
             progress += speed * Time.deltaTime;
             fillImage.fillAmount = progress;
+        }
+        if(progress > 1f)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
