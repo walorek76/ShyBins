@@ -17,7 +17,16 @@ public class GameManager : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource musicSource;
 
+    [Header("Players")]
+    public PlayerHealth player1;
+    public PlayerHealth player2;
+
+    [Header("UI")]
+    public GameObject gameOverPanel;
+    public Text winnerText;
+
     public static GameManager instance;
+    bool gameOver = false;
 
     private bool isPaused = false;
     private bool isAudioOn = true;
@@ -28,7 +37,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); 
         }
         else
         {
@@ -41,6 +49,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        gameOverPanel.SetActive(false);
+
         if (pauseMenuCanvas != null) pauseMenuCanvas.SetActive(false);
 
         if (musicSource != null) musicSource.volume = 0.1f;
@@ -95,11 +106,38 @@ public class GameManager : MonoBehaviour
         isAudioOn = !isAudioOn;
     }
 
+    void ShowGameOver(string message)
+    {
+        gameOver = true;
+        gameOverPanel.SetActive(true);
+        winnerText.text = message;
+        Time.timeScale = 0f; 
+    }
+
+    public void PlayAgain()
+    {
+        Time.timeScale = 1f;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
+        }
+
+        if (gameOver) return;
+
+        if (player1.currentHealth <= 0)
+        {
+            ShowGameOver("Yellow shybin wins");
+        }
+
+        if (player2.currentHealth <= 0)
+        {
+            ShowGameOver("Green Shybin wins");
         }
     }
 }
