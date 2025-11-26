@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); 
         }
         else
         {
@@ -52,8 +51,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         gameOverPanel.SetActive(false);
-        player1.ResetHealth();
-        player2.ResetHealth();
 
         if (pauseMenuCanvas != null) pauseMenuCanvas.SetActive(false);
 
@@ -135,12 +132,12 @@ public class GameManager : MonoBehaviour
 
         if (player1.currentHealth <= 0)
         {
-            ShowGameOver("Player 2 wins!");
+            ShowGameOver("Yellow shybin wins");
         }
 
         if (player2.currentHealth <= 0)
         {
-            ShowGameOver("Player 1 wins!");
+            ShowGameOver("Green Shybin wins");
         }
     }
 }

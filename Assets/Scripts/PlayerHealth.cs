@@ -16,15 +16,10 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalColor = spriteRenderer.color; 
     }
-
-    public void ResetHealth()
-    {
-        currentHealth = maxHealth;
-    }
-
 
     void Update()
     {
