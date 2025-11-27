@@ -4,7 +4,7 @@ public class GameData : MonoBehaviour
 {
     public static GameData Instance;
 
-    public bool musicBool = false;
+    public bool musicBool = true;
     public bool effectsBool = true;
     public float volumeMusic = 0.1f;
     public float volumeEffects = 0.1f;
