@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.UIElements;
+using TMPro;
 
 
 public class GameManager : MonoBehaviour
@@ -20,10 +21,13 @@ public class GameManager : MonoBehaviour
     [Header("Players")]
     public PlayerHealth player1;
     public PlayerHealth player2;
+    public Sprite player1Sprite;
+    public Sprite player2Sprite;
 
     [Header("UI")]
     public GameObject gameOverPanel;
-    public Text winnerText;
+    public TMP_Text winnerText;
+    public UnityEngine.UI.Image winnerImage;
 
     public static GameManager instance;
     bool gameOver = false;
@@ -106,13 +110,17 @@ public class GameManager : MonoBehaviour
         isAudioOn = !isAudioOn;
     }
 
-    void ShowGameOver(string message)
+    void ShowGameOver(string message, Sprite winnerSprite)
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+
         winnerText.text = message;
-        Time.timeScale = 0f; 
+        winnerImage.sprite = winnerSprite;
+
+        Time.timeScale = 0f;
     }
+
 
     public void PlayAgain()
     {
@@ -130,14 +138,14 @@ public class GameManager : MonoBehaviour
 
         if (gameOver) return;
 
-        if (player1.currentHealth <= 0)
-        {
-            ShowGameOver("Yellow shybin wins");
-        }
-
         if (player2.currentHealth <= 0)
         {
-            ShowGameOver("Green Shybin wins");
+            ShowGameOver("Green Shybin wins", player1Sprite);
+        }
+
+        if (player1.currentHealth <= 0)
+        {
+            ShowGameOver("Yellow shybin wins", player2Sprite);
         }
     }
 }
