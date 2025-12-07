@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player1Attack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 0.5f; 
+    [SerializeField] private AudioSource audioSource; 
     private Rigidbody2D rb;
     private Vector2 lastShootDirection = Vector2.right; 
 
@@ -29,7 +30,9 @@ public class Player1Attack : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.F) && coolDownTimer > attackCooldown)
         {
+
             Attack();
+            audioSource.Play();
         }
 
         coolDownTimer += Time.deltaTime;

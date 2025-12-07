@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private GameObject pauseMenuCanvas;
     [SerializeField] private Scrollbar volumeSlider;
+    [SerializeField] private Scrollbar volumeEffects;
+
 
     [Header("Audio")]
     [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource Gun1;
+    [SerializeField] private AudioSource Gun2;
 
     [Header("Players")]
     public PlayerHealth player1;
@@ -34,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isAudioOn = true;
+    private bool isEffectsOn = true;
+
 
     private void Awake()
     {
@@ -58,13 +64,26 @@ public class GameManager : MonoBehaviour
 
         if (pauseMenuCanvas != null) pauseMenuCanvas.SetActive(false);
 
-        if (musicSource != null) musicSource.volume = 0.1f;
+        if (musicSource != null) musicSource.volume = 0.5f;
 
         if (volumeSlider != null)
         {
             volumeSlider.value = musicSource != null ? musicSource.volume : 0.5f;
             volumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
         }
+        
+        if (isAudioOn)
+        {
+            musicSource.Play();
+        }
+           
+        if (volumeEffects != null)
+        {
+                volumeEffects.value = Gun1 != null ? Gun1.volume : 0.5f;
+                volumeEffects.value = Gun2 != null ? Gun2.volume : 0.5f;
+                volumeEffects.onValueChanged.AddListener(ChangeEffectsVolume);
+        }
+
     }
 
     public void PauseGame()
@@ -93,6 +112,30 @@ public class GameManager : MonoBehaviour
         if (musicSource != null)
             musicSource.volume = newVolume;
     }
+    public void ChangeEffectsVolume(float newVolume)
+    {
+        Gun1.volume = newVolume;
+        Gun2.volume = newVolume;
+    }
+
+    public void ToggleEffectsVolume()
+{
+    
+
+    if (isEffectsOn)
+    {
+        Gun1.volume = 0f;
+        Gun2.volume = 0f;
+    }
+    else
+    {
+        Gun1.volume = volumeEffects != null ? volumeEffects.value : 0.5f;
+        Gun2.volume = volumeEffects != null ? volumeEffects.value : 0.5f;
+    }
+
+    isEffectsOn = !isEffectsOn;
+}
+
 
     public void ToggleMusicVolume()
     {
