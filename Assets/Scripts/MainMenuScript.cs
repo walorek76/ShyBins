@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [SerializeField] private Canvas canvas1;
     
     
     void Start()
     {
-        
+        canvas1.gameObject.SetActive(false);
     }
 
     
@@ -19,6 +20,6 @@ public class MainMenuScript : MonoBehaviour
     }
     public void LoadGameScene()
     {
-       SceneManager.LoadScene("Sala1GameScene"); 
+      canvas1.gameObject.SetActive(true);
     }
 }
