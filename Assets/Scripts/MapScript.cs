@@ -18,7 +18,7 @@ public class MapScript : MonoBehaviour
 
     public void LoadMap3()
     {
-        SceneManager.LoadScene("Nazwa sceny");
+        SceneManager.LoadScene("Sala6");
     }
 
     public void LoadMap4()
